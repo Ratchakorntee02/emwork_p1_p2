@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Temple</title>
+
+    <style>
+        #temple{
+            background: url('bg.jpg');
+            padding: 20px;
+            text-align: center;
+            background-size: cover;
+            height: 100vh;
+            align-items: center;
+        }
+        .imagewatthai2{
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+        }
+        .slider{
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            justify-content: center;
+            gap: 10px;
+        }
+        .wat{
+            margin-top: 10px;
+            font-size: 20px;
+        }
+    </style>
+  </head>
+
+<body>
+    <div id="temple" class="templeall">
+        <h1>Temple By Region</h1>
+        <h4>ค้นหาข้อมูลวัดตามภูมิภาค</h4>
+        <div id="slider-container" class="slider">
+            <!-- ภาคเหนือ -->
+            <div id="watthai" class="wat">
+                <img id="imagewatthai1" class="imagewatthai2" src="northwat.jpg" alt="Temple1">
+                <div class="wat mt-2">ภาคเหนือ</div>
+            </div>
+
+            <!-- ภาคกลาง -->
+            <div id="watthai" class="wat">
+                <img id="imagewatthai2" class="imagewatthai2" src="midwat.jpg" alt="Temple2">
+                <div class="wat">ภาคกลาง</div>
+            </div>
+
+            <!-- ภาคตะวันออกเฉียงเหนือ -->
+            <div id="watthai" class="wat">
+                <img id="imagewatthai3" class="imagewatthai2" src="northeastwat.jpg" alt="Temple3">
+                <div class="wat">ภาคตะวันออกเฉียงเหนือ</div>
+            </div>
+
+            <!-- ภาคตะวันตก -->
+            <div id="watthai" class="wat">
+                <img id="imagewatthai4" class="imagewatthai2" src="southwat.jpg" alt="Temple4">
+                <div class="wat">ภาคตะวันตก</div>
+            </div>
+        </div>
+        <button id="Autoplay" class="btn btn-warning mt-4">Auto slide</button>
+    </div>
+
+    <script>
+        let autoplay = false;
+        const slider = document.getElementById('slider-container');
+        function startAutoplay() {
+            if (autoplay) return;
+            autoplay = setInterval(() => {
+                slider.appendChild(slider.firstElementChild);
+            }, 3000);
+        }
+        function stopAutoplay() {
+            clearInterval(autoplay);
+            autoplay = false;
+        }
+        document.getElementById('Autoplay').addEventListener('click', () => {
+            autoplay ? stopAutoplay() : startAutoplay();
+        });
+    </script>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>
